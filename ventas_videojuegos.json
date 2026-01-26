@@ -1,0 +1,69 @@
+{
+  "videojuegos": [
+    {
+      "id": 1,
+      "nombre": "Wii Sports",
+      "plataforma": "Wii",
+      "anio": 2006,
+      "genero": "Sports",
+      "editor": "Nintendo",
+      "ventas_na": 41.36,
+      "ventas_eu": 28.96,
+      "ventas_jp": 3.77,
+      "ventas_otros": 8.45,
+      "ventas_global": 82.53
+    },
+    {
+      "id": 2,
+      "nombre": "Super Mario Bros.",
+      "plataforma": "NES",
+      "anio": 1985,
+      "genero": "Platform",
+      "editor": "Nintendo",
+      "ventas_na": 29.08,
+      "ventas_eu": 3.58,
+      "ventas_jp": 6.81,
+      "ventas_otros": 0.77,
+      "ventas_global": 40.24
+    },
+    {
+      "id": 3,
+      "nombre": "Mario Kart Wii",
+      "plataforma": "Wii",
+      "anio": 2008,
+      "genero": "Racing",
+      "editor": "Nintendo",
+      "ventas_na": 15.68,
+      "ventas_eu": 12.76,
+      "ventas_jp": 3.79,
+      "ventas_otros": 3.29,
+      "ventas_global": 35.52
+    },
+    {
+      "id": 4,
+      "nombre": "Wii Sports Resort",
+      "plataforma": "Wii",
+      "anio": 2009,
+      "genero": "Sports",
+      "editor": "Nintendo",
+      "ventas_na": 15.61,
+      "ventas_eu": 10.93,
+      "ventas_jp": 3.28,
+      "ventas_otros": 2.95,
+      "ventas_global": 32.77
+    },
+    {
+      "id": 5,
+      "nombre": "Pokemon Red/Pokemon Blue",
+      "plataforma": "GB",
+      "anio": 1996,
+      "genero": "Role-Playing",
+      "editor": "Nintendo",
+      "ventas_na": 11.27,
+      "ventas_eu": 8.89,
+      "ventas_jp": 10.22,
+      "ventas_otros": 1.0,
+      "ventas_global": 31.38
+    }
+  ]
+}
