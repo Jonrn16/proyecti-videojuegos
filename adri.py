@@ -1,4 +1,5 @@
 from jon import calcularventaspromedioporplataforma
+from chema import calcularVentas, calcularVentasPorRegion, leerDatosVentas
 
 
 def AnalizarPorGenero(datos):
@@ -32,12 +33,12 @@ def GenerarReporteCompleto(datos):
     :return: Imprime el informe directamente en consola
     """
     print("\n--- INFORME FINAL DE VENTAS ---")
-    totales = CalcularVentasTotales(datos)
+    totales = calcularVentas(datos)
     print(f"Juegos analizados: {len(datos)}")
     print(f"Ventas Globales: {totales['global']:.2f}M")
     
     print("\nTOP 5 POR REGIÓN (GLOBAL):")
-    for nombre, venta in TopVentasPorRegion(datos, 'global'):
+    for nombre, venta in calcularVentasPorRegion(datos, 'global'):
         print(f"- {nombre}: {venta}M")
         
     print("\nVENTAS MEDIAS POR CONSOLA:")

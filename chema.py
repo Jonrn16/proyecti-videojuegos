@@ -32,7 +32,7 @@ def calcularVentas(datos):
 
     return total_regiones
 
-def calcularVentasPorRegion(datos, region, n):
+def calcularVentasPorRegion(datos, region):
     """
         Función que encuentra los n videojuegos con más ventas en una región específica.
         :param: se le pasa como parámetro las ventas y llos datos del archivo json y se ordenan en un ranking con un índice n
@@ -41,10 +41,10 @@ def calcularVentasPorRegion(datos, region, n):
 
     ventasTotales = []
 
-    for viedojuegos in ventasTotales:
+    for viedojuegos in datos:
         juegos = (viedojuegos["nombre"], viedojuegos["ventas " + region])
         ventasTotales.append(juegos)
 
     juegosOrdenados = sorted(ventasTotales, key = lambda x: x[1], reverse=True)
 
-    return  juegosOrdenados[:n]
+    return  juegosOrdenados
