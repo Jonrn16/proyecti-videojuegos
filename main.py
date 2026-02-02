@@ -20,7 +20,7 @@ while(funcional):
         generarReporteCompleto(datos)
     elif opcion == 2:
         region = input("Escoge la region a ver (eu,na,jp): ")
-        topVentasPorRegion(datos, region, n)
+        chema.calcularVentasPorRegion(datos, region, n)
     elif opcion == 3:
         analizarPorGenero(datos)
     elif opcion == 4:
@@ -28,9 +28,9 @@ while(funcional):
     elif opcion == 5:
         filtrarPorRangoAnyos(datos, anyo_inicio, anyo_fin):
     elif opcion == 6:
-        calcularVentasTotales(datos)
+        chema.calcularVentas(datos)
     elif opcion == 7:
-        leerDatosVentas()
+        chema.leerDatosVentas()
     elif opcion == 0:
         funcional = False
     else:
