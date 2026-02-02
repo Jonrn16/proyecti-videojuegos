@@ -1,5 +1,11 @@
 
-def calcularVentasPromedioPorPlataforma(datos):
+def calcularventaspromedioporplataforma(datos: list):
+    """
+    Funcion que calcula el promedio de ventas divididos en plataforma
+
+    :param datos: Lista de diccionarios con datos de videojuegos
+    :return: Un diccionario donde tienes el promedio de ventas totales por plataforma
+    """
     ventas = {}
     wii = 0
     gb = 0
@@ -22,11 +28,19 @@ def calcularVentasPromedioPorPlataforma(datos):
     ventas["nes"] = ventas["nes"]/wii
     return ventas
 
-def filtrarPorRangosAnios(datos, anio_inicio, anio_fin):
-    listaFiltrada = []
+def filtrarporrangosanios(datos: list, anio_inicio: int, anio_fin: int):
+    """
+    Funcion que filtra la lista de juegos a que esten dentro de un cierto rango de años
+    :param datos: Lista de diccionarios con datos de videojuegos
+    :param anio_inicio: Año inicial del rango (inclusive)
+    :param anio_fin: Año final del rango (inclusive)
+    :return: Lista filtrada de videojuegos que cumplen con el rango de años
+    """
+
+    listafiltrada = []
 
     for dato in datos:
         if anio_inicio < dato.anio < anio_fin:
-            listaFiltrada.append(dato)
+            listafiltrada.append(dato)
 
-    return listaFiltrada
+    return listafiltrada
