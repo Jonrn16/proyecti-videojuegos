@@ -1,9 +1,16 @@
+from jon import calcularventaspromedioporplataforma
+
+
 def AnalizarPorGenero(datos):
-    """Función que analiza las ventas agrupadas por género de videojuegos"""
+    """
+    Función que analiza las ventas agrupadas por género de videojuegos
+    :param datos: Es una lista de diccionario con los datos de los videojuegos
+    :return: Un diccionario con los datos de ventas por genero
+    """
     analisis = {}
     for juego in datos:
         g = juego['genero']
-        if g not in analisis:
+        if analisis.__contains__(g):
             analisis[g] = {
                 'cantidad_juegos': 0,
                 'ventas_global': 0.0,
@@ -19,7 +26,11 @@ def AnalizarPorGenero(datos):
     return analisis
 
 def GenerarReporteCompleto(datos):
-    """Muestra toda la info de golpe."""
+    """
+    Muestra en un reporte completo en base al archivo json.
+    :param datos: Una lista de diccionarios con datos de videojuegos
+    :return: Imprime el informe directamente en consola
+    """
     print("\n--- INFORME FINAL DE VENTAS ---")
     totales = CalcularVentasTotales(datos)
     print(f"Juegos analizados: {len(datos)}")
@@ -30,7 +41,7 @@ def GenerarReporteCompleto(datos):
         print(f"- {nombre}: {venta}M")
         
     print("\nVENTAS MEDIAS POR CONSOLA:")
-    promedios = CalcularVentasPromedioPorPlataforma(datos)
+    promedios = calcularventaspromedioporplataforma(datos)
     for plat, media in sorted(promedios.items(), key=lambda x: x[1], reverse=True):
         print(f"* {plat}: {media:.2f}M")
     print("-------------------------------\n")
