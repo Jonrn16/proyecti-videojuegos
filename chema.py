@@ -1,7 +1,11 @@
 import json
 
-#Funcion para leer los datos de los juegos;
+
 def leerDatosVentas():
+    """
+    Funcion para leer los datos de los juegos
+    :return: devuelve un reporte completo con todos los datos del archivo.json
+    """
     try:
         with open("ventas_videojuegos.json","r") as fichero:
             datos = json.load(fichero)
@@ -10,7 +14,11 @@ def leerDatosVentas():
         print(e)
 #Función que recibe la lista de diccionarios con los datos de ventas y calcula las ventas totales agregadas por cada región.
 def calcularVentas(datos):
-    print()
+    """
+        Funcion para calcular las ventas totales de videojuegos
+        :param: datos del archivo ventas_videojuegos.json
+        :return: Función que recibe la lista de diccionarios con los datos de ventas y calcula las ventas totales agregadas por cada región.
+    """
 
     total_regiones = {"eu" : 0, "na" : 0, "jp" : 0, "otros" : 0, "globales" : 0}
 
@@ -24,8 +32,12 @@ def calcularVentas(datos):
 
     return total_regiones
 
-#Función que encuentra los n videojuegos con más ventas en una región especifica.
 def calcularVentasPorRegion(datos, region, n):
+    """
+        Función que encuentra los n videojuegos con más ventas en una región específica.
+        :param: se le pasa como parámetro las ventas y llos datos del archivo json y se ordenan en un ranking con un índice n
+        :return: devuelve que encuntra los viedojuegos mas vendidos por región y los muestra ordenados por pantalla.
+    """
 
     ventasTotales = []
 
