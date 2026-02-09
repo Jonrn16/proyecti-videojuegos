@@ -11,7 +11,7 @@ def AnalizarPorGenero(datos):
     analisis = {}
     for juego in datos:
         g = juego['genero']
-        if analisis.__contains__(g):
+        if g not in analisis:
             analisis[g] = {
                 'cantidad_juegos': 0,
                 'ventas_global': 0.0,
@@ -38,7 +38,7 @@ def GenerarReporteCompleto(datos):
     print(f"Ventas Globales: {totales['global']:.2f}M")
     
     print("\nTOP 5 POR REGIÓN (GLOBAL):")
-    for nombre, venta in calcularVentasPorRegion(datos, 'global'):
+    for nombre, venta in calcularVentasPorRegion(datos, 'global', 5):
         print(f"- {nombre}: {venta}M")
         
     print("\nVENTAS MEDIAS POR CONSOLA:")
