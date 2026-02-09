@@ -7,26 +7,14 @@ def calcularventaspromedioporplataforma(datos: list):
     :return: Un diccionario donde tienes el promedio de ventas totales por plataforma
     """
     ventas = {}
-    wii = 0
-    gb = 0
-    nes = 0
+    conteos = {}
     for dato in datos:
-        if ventas.__contains__(dato.plataforma):
-            ventas[dato.plataforma] += dato
-        else:
-            ventas[dato.plataforma] = dato
-
-        if dato.plataforma == "wii":
-            wii += 1
-        elif dato.plataforma == "nes":
-            nes += 1
-        else:
-            gb += 1
-
-    ventas["wii"] = ventas["wii"]/wii
-    ventas["gb"] = ventas["gb"]/wii
-    ventas["nes"] = ventas["nes"]/wii
-    return ventas
+        p = dato['plataforma']
+        v = dato['ventas_globales']
+        ventas[p] = ventas.get(p,0) + v
+        conteos[p] = conteos.get(p, 0) + 1
+        promedios = {p: ventas[p] / conteos[p] for p in ventas}
+        return promedios
 
 def filtrarporrangosanios(datos: list, anio_inicio: int, anio_fin: int):
     """
@@ -36,11 +24,5 @@ def filtrarporrangosanios(datos: list, anio_inicio: int, anio_fin: int):
     :param anio_fin: Año final del rango (inclusive)
     :return: Lista filtrada de videojuegos que cumplen con el rango de años
     """
-
-    listafiltrada = []
-
-    for dato in datos:
-        if anio_inicio < dato.anio < anio_fin:
-            listafiltrada.append(dato)
-
-    return listafiltrada
+    return [dato for dato in datos
+            if anio_inicio <= dato['anio'] >= anio_fin]
