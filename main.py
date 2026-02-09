@@ -1,4 +1,4 @@
-import chema
+import chema, jon, adri
 funcional = True
 datos = chema.leerDatosVentas()
 
@@ -14,23 +14,32 @@ while(funcional):
     print("7. Ver todos los datos")
     print("0. salir")
 
-    opcion = input("Seleccione una opcion (0-7): ")
+    opcion = int(input("Seleccione una opcion (0-7): "))
 
     if opcion == 1:
-        generarReporteCompleto(datos)
+        adri.GenerarReporteCompleto(datos)
     elif opcion == 2:
-        region = input("Escoge la region a ver (eu,na,jp): ")
-        chema.calcularVentasPorRegion(datos, region, n)
+        region = input("Escoge la región (na, eu, jp, otros o global): ").strip().lower()
+        n = int(input("¿Cuántos juegos quieres ver en el ranking?: "))
+        try:
+            resultado = chema.calcularVentasPorRegion(datos, region, n)
+            print(f"\nTop {n} ventas en región:", region)
+            for nombre, ventas in resultado:
+                print(f"- {nombre}: {ventas}")
+        except ValueError as e:
+            print("Error:", e)
     elif opcion == 3:
-        analizarPorGenero(datos)
+        print(adri.AnalizarPorGenero(datos))
     elif opcion == 4:
-        calcularVentasPromedioPorPlataforma(datos)
+        jon.calcularventaspromedioporplataforma(datos)
     elif opcion == 5:
-        filtrarPorRangoAnyos(datos, anyo_inicio, anyo_fin):
+        inicio = int(input("Introduce el año de inicio para filtrar: "))
+        fin = int(input("Introduce el año de fin para filtrar: "))
+        print(jon.filtrarporrangosanios(datos, inicio, fin))
     elif opcion == 6:
-        chema.calcularVentas(datos)
+        print(chema.calcularVentas(datos))
     elif opcion == 7:
-        chema.leerDatosVentas()
+        print(chema.leerDatosVentas())
     elif opcion == 0:
         funcional = False
     else:
