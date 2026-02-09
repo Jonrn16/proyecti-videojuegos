@@ -35,10 +35,10 @@ def GenerarReporteCompleto(datos):
     print("\n--- INFORME FINAL DE VENTAS ---")
     totales = calcularVentas(datos)
     print(f"Juegos analizados: {len(datos)}")
-    print(f"Ventas Globales: {totales['global']:.2f}M")
+    print(f"Ventas Globales: {totales['globales']:.2f}M")
     
     print("\nTOP 5 POR REGIÓN (GLOBAL):")
-    for nombre, venta in calcularVentasPorRegion(datos, 'globales', 5):
+    for nombre, venta in calcularVentasPorRegion(datos, 'global', 5):
         print(f"- {nombre}: {venta}M")
         
     print("\nVENTAS MEDIAS POR CONSOLA:")
@@ -46,4 +46,5 @@ def GenerarReporteCompleto(datos):
     for plat, media in sorted(promedios.items(), key=lambda x: x[1], reverse=True):
         print(f"* {plat}: {media:.2f}M")
     print("-------------------------------\n")
+
 
